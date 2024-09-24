@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+
+
+body, html {
+    height: 100%
+    margin:0;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}    
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border: 10px solid purple;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+</style>
+</head>
+<body>
+    
+<div class="container"
+</h1> BMI CALCULATOR </h1>
+
+<p> Welcome to the BMI Calculator, where you will be able to get your BMI based 
+    on your weight and height.
+</p>
+<br>
+<br>
+<label for="HeightInput"> Enter your height (centimeters): </label>
+<input type="text" id="HeightInput">
+<label for="WeightInput"> Enter your weight (kilograms): </label>
+<input type="text" id="WeightInput">
+<button onclick="ComputeBMI()"> Compute BMI </button>
+<label for="BMIOUTPUT"> YOUR BMI: </label>
+<input type="text" id="BMIOUTPUT">
+<script>
+function ComputeBMI() {
+    var height = parseFloat(document.getElementById('HeightInput').value)
+    var weight = parseFloat(document.getElementById('WeightInput').value)
+    var BMI =  weight / (height / 100) ** 2
+    document.getElementById('BMIOUTPUT').value = BMI.toFixed(2);
+}
+
+
+
+</script>
+
+
+</div>
+
+</body>
+
+</body>
+
+
+
+
+</html>

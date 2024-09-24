@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .white-square {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1> Calculator.net </h1>
+
+<nav>
+    <ul>
+        <li> Home </li>
+        <li> Financial </li>
+        <li> Currency </li>
+        <li> Calculator </li>
+    </ul>
+</nav>
+
+<h2> Currency Calculator </h2>
+<h3> With Live Exchange Rate </h3>
+<p> Modify the values and click the Calculate button to use </p>
+
+<div class="white-square">
+    <label for="Amount"> Amount: </label>
+    <input type="text" id="Amount">
+    
+    <label for="from"><br>From: </label>
+    <select name="efrom" id="from">
+        <option value="USD"> United States Dollar </option>
+        <option value="BTC"> Bitcoin </option>
+        <option value="NGN"> Nigeria </option>
+    </select>
+
+    <button onclick="calculate()"> Calculate </button>
+    <button onclick="clearInputs()"> CLEAR </button>
+    
+    <p id="result"></p>
+</div>
+
+<script>
+function calculate() {
+    var amount = parseFloat(document.getElementById('Amount').value);
+    var currencyFrom = document.getElementById('from').value;
+
+    // Validate input amount
+    if (isNaN(amount) || amount <= 0) {
+        document.getElementById('result').innerHTML = "Please enter a valid amount.";
+        return;
+    }
+
+    var naira;
+    // Exchange rates (example rates, update as necessary)
+    const usdToNairaRate = 1561.01; // 1 USD to NGN
+    const btcToNairaRate = 2500000;  // 1 BTC to NGN (example rate)
+
+    if (currencyFrom === "USD") {
+        naira = amount * usdToNairaRate;
+        document.getElementById('result').innerHTML = "Amount in Nigerian Naira: ₦" + naira.toFixed(2);
+    } else if (currencyFrom === "BTC") {
+        naira = amount * btcToNairaRate;
+        document.getElementById('result').innerHTML = "Amount in Nigerian Naira: ₦" + naira.toFixed(2);
+    } else if (currencyFrom === "NGN") {
+        document.getElementById('result').innerHTML = "You selected Nigerian Naira. No conversion needed.";
+    }
+}
+
+function clearInputs() {
+    document.getElementById('Amount').value = "";
+    document.getElementById('from').value = "USD"; // Reset to default
+    document.getElementById('result').innerHTML = "";
+}
+</script>
+
+</body>
+</html>

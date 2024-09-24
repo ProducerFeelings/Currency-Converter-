@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <label for="textInput1">Enter 1st number:</label>
+    <input type='text' id='textInput1' name='textInput1'>
+
+    <label for="textInput2">Enter 2nd number:</label>
+    <input type='text' id='textInput2' name='textInput2'>
+
+    <button onclick='calculate()'>Submit</button>
+
+    <p id='result'></p>
+
+    <script>
+        function addition(a, b) {
+            return a + b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            if (b !== 0) {
+                return a / b;
+            } else {
+                return "Cannot divide by zero";
+            }
+        }
+
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('textInput1').value);
+            var num2 = parseFloat(document.getElementById('textInput2').value);
+
+            var additionResult = addition(num1, num2);
+            var multiplyResult = multiply(num1, num2);
+            var divideResult = divide(num1, num2);
+
+            document.getElementById('result').innerHTML = "Addition: " + additionResult + "<br>" +
+                                                            "Multiplication: " + multiplyResult + "<br>" +
+                                                            "Division: " + divideResult;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+
+
+
+
+
+</html>

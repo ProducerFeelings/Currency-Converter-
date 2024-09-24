@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    
+<h1>Temperature Converter</h1>
+
+<label for="celsiusInput">Enter temperature in Celsius:</label>
+<input type="text" id="celsiusInput">
+
+<button onclick="convertCelsiusToFahrenheit()">Convert</button>
+
+<label for="fahrenheitInput">Enter temperature in Fahrenheit:</label>
+<input type="text" id="fahrenheitInput">
+
+<button onclick="convertFahrenheitToCelsius()">Convert</button>
+
+<br>
+
+<label for="celsiusToKelvinInput">Enter temperature in Celsius:</label>
+<input type="text" id="celsiusToKelvinInput">
+
+<button onclick="convertCelsiusToKelvin()">Convert Celsius to Kelvin</button>
+
+<label for="kelvinToCelsiusInput">Enter temperature in Kelvin:</label>
+<input type="text" id="kelvinToCelsiusInput">
+
+<button onclick="convertKelvinToCelsius()">Convert Kelvin to Celsius</button>
+
+<p id="result"></p>
+
+<script>
+function convertCelsiusToFahrenheit() {
+    var celsius = parseFloat(document.getElementById('celsiusInput').value);
+    var fahrenheit = (celsius * 9 / 5) + 32;
+    document.getElementById('result').innerHTML = 'Temperature to Fahrenheit: ' + fahrenheit.toFixed(2);
+} 
+
+function convertFahrenheitToCelsius() {
+    var fahrenheit = parseFloat(document.getElementById('fahrenheitInput').value);
+    var celsius = (fahrenheit - 32) * (5 / 9);
+    document.getElementById('result').innerHTML = 'Temperature to Celsius: ' + celsius.toFixed(2);
+}
+
+function convertCelsiusToKelvin() {
+    var celsius = parseFloat(document.getElementById('celsiusToKelvinInput').value);
+    var kelvin = celsius + 273.15;
+    document.getElementById('result').innerHTML = 'Temperature to Kelvin: ' + kelvin.toFixed(2);
+}
+
+function convertKelvinToCelsius() {
+    var kelvin = parseFloat(document.getElementById('kelvinToCelsiusInput').value);
+    var celsius = kelvin - 273.15;
+    document.getElementById('result').innerHTML = 'Temperature to Celsius: ' + celsius.toFixed(2);
+}
+</script>
+</body>
+</html>
